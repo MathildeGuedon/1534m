@@ -1,0 +1,31 @@
+.glPanierOpen {
+    margin: 1em auto 0;
+    /* width: 100%; */
+    width: fit-content;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    background-color: #3f2812
+}
+
+.glPanierBtnFermeture {
+    /* display: flex; */
+    /* justify-content: flex-end; */
+    width: fit-content;
+    height: fit-content;
+    /* margin-right: 10%; */
+    padding: 20px;
+    background-color: transparent;
+}
+
+.glPanierBtnFermeture:hover {
+    color: #B87333;
+}
+
+.glPanierAddition {
+    text-align: right;
+}
+
+.glPanierBtnOuverture {
+    margin-top: 1em;
+}

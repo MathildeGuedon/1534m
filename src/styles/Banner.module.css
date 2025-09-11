@@ -1,0 +1,19 @@
+.glBannerGlobal {
+    border-bottom: 3px solid #0be506;
+}
+
+.glLogoAccueil {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    border-radius: 30px;
+    background-color: rgb(31, 30, 30);
+    padding: 30px;
+    box-shadow: 6px 6px 25px rgba(0, 0, 0, 0.5);
+}
+
+.glLogo {
+    background-color: #e57106;
+    width: 7em;
+    aspect-ratio: 1;
+}

@@ -1,0 +1,59 @@
+.glGlaceItem {
+    width: 200px;
+    margin: 10px;
+}
+
+.glGlaceTag {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+}
+
+.glGlaceItemCover {
+    width: 100%;
+    border-radius: 20px;
+}
+
+.glGlaceItemSoldes {
+    position: absolute;
+    padding: 5px 10px;
+    left: 0;
+    top: 0;
+    background-color: #e57106;
+    border-radius: 20px 0;
+    font-weight: 600;
+}
+
+.glGlaceItemNouveaute {
+    position: absolute;
+    padding: 5px 10px;
+    right: 0;
+    top: 0;
+    background-color: #045e02;
+    border-radius: 0 20px;
+    font-weight: 600;
+}
+
+.glGlaceItemPrix {
+    position: absolute;
+    padding: 5px 10px;
+    left: 0;
+    bottom: 0;
+    background-color: #045e02;
+    border-radius: 0 20px;
+    font-weight: 600;
+}
+
+.glGlaceItemStock {
+    position: absolute;
+    padding: 5px 10px;
+    top: 60%;
+    right: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    font-weight: 600;
+}
+
+abbr {
+    text-decoration: none;
+}

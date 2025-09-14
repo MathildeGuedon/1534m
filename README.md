@@ -1,7 +1,7 @@
 # ❄️ Glacier 1534m
 
 Un site vitrine React Mobile first pour découvrir, filtrer et commander les produits d’une ferme fictive du Bugey commercialisant en ligne des glaces artisanales.  
-🔗 <a href="https://MathildeGuedon.github.io/glacier1534m" target="_blank" rel="noopener noreferrer">Voir le site en ligne</a>
+🔗 <a href="https://MathildeGuedon.github.io/1534m" target="_blank" rel="noopener noreferrer">Voir le site en ligne</a>
 
 ## Aperçu visuel
 
@@ -18,11 +18,6 @@ Ce projet a été réalisé dans un cadre d’auto-formation au développement f
 - **Filtrage des résultats** : Affichage des fiches produits selon différents critères.
 - **Mémorisation du panier en local** : Sauvegarde du panier même en cas de fermeture du site grâce au localStorage
 - **Formulaire contrôlé** : Vérification de la validité de l'adresse mail au fur et à mesure de la saisie par l'utilisateur.
-
-## Installation
-
-Clonez le repository puis lancez le projet en double-cliquant sur le fichier index.html.  
-Vous pouvez aussi simplement <a href="https://MathildeGuedon.github.io/glacier1534m" target="_blank" rel="noopener noreferrer">visiter le site</a> sur GitHub Pages.
 
 ## Technologies utilisées
 - React, Vite

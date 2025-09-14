@@ -5,3 +5,17 @@
     flex-wrap: wrap;
     justify-content: center;
 }
+
+.glBoutiqueItem {
+    background-color: var(--contrast-color-white);
+    margin: 1em;
+    padding: 0;
+    box-shadow: 6px 6px 25px rgba(0, 0, 0, 0.5);
+}
+
+.glBoutiqueBtnCommandePanier {
+    background-color: var(--contrast-color-white);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}

@@ -1,4 +1,17 @@
-import vanilleBourbon from '../assets/glace_vanille_sauce_caramel_eclats_amandes.jpeg'
+import vanilleBourbon from '../assets/glace_vanille_bourbon_sauce_caramel_carre.jpg'
+import glaceMenthe from '../assets/glace_menthe_verveine_feuille_menthe_vue_dessus_carre.jpg'
+import sorbetCitron from '../assets/sorbet_citron_vert_romarin_batonnet_carre.jpg'
+import glaceNoix from '../assets/glace_noix_grenoble_eclats_noix_carre.jpg'
+import sorbetCassis from '../assets/sorbet_cassis_batonnet_carre.jpg'
+import praline from "../assets/glace_praline_eclats_praline_vue_dessus_carre.jpg"
+import cafe from "../assets/glace_cafe_carre.jpg"
+import chocolatNoir from "../assets/glace_chocolat_boules_carre.jpg"
+import abricot from "../assets/sorbet_abricot_thym_batonnet_carre.jpg"
+import myrtille from "../assets/sorbet_myrtille_batonnet_carre.jpg"
+import nougat from "../assets/glace_nougat_amandes_effilees_carre.jpg"
+import fraise from "../assets/sorbet_fraise_batonnet_glacon_carre.jpg"
+import caramel from "../assets/glace_caramel_carre.jpg"
+import pistache from "../assets/glace_pistache_eclats_carre.jpg"
 
 export const listeGlaces = [
     {
@@ -8,10 +21,10 @@ export const listeGlaces = [
         categorie: "glace",
         gamme: "classique",
         ingredients: [
-            "lait",
-            "crème",
+            "LAIT",
+            "CREME",
             "sucre",
-            "oeuf",
+            "OEUF",
             "grains naturels de vanille"
         ],
         volume: 750,
@@ -19,19 +32,22 @@ export const listeGlaces = [
         enSoldes: false,
         meilleuresVentes: false,
         enStock: true,
-        nouveaute: false
+        nouveaute: false,
+        sansLait: false,
+        sansOeuf: false,
+        sansNoix: true,
     },
     {
         name: "Glace chocolat noir, sauce chocolat",
         id: "gcltn",
-        cover: vanilleBourbon,
+        cover: chocolatNoir,
         categorie: "glace",
         gamme: "classique",
         ingredients: [
-            "lait",
-            "crème",
+            "LAIT",
+            "CREME",
             "sucre",
-            "oeuf",
+            "OEUF",
             "poudre de cacao",
             "chocolat noir 70%"
         ],
@@ -40,38 +56,44 @@ export const listeGlaces = [
         enSoldes: false,
         meilleuresVentes: false,
         enStock: true,
-        nouveaute: false
+        nouveaute: false,
+        sansLait: false,
+        sansOeuf: false,
+        sansNoix: true,
     },
     {
         name: "Glace pistache, éclats de pistaches grillées",
         id: "gptch",
-        cover: vanilleBourbon,
+        cover: pistache,
         categorie: "glace",
         gamme: "classique",
         ingredients: [
-            "lait",
-            "crème",
+            "LAIT",
+            "CREME",
             "sucre",
-            "pistache"
+            "PISTACHE"
         ],
         volume: 750,
         prix: 7,
         enSoldes: false,
         meilleuresVentes: false,
         enStock: false,
-        nouveaute: false
+        nouveaute: false,
+        sansLait: false,
+        sansOeuf: false,
+        sansNoix: false,
     },
     {
         name: "Glace caramel, éclats de caramel et fleur de sel",
         id: "gcfs",
-        cover: vanilleBourbon,
+        cover: caramel,
         categorie: "glace",
         gamme: "classique",
         ingredients: [
-            "lait",
-            "crème",
+            "LAIT",
+            "CREME",
             "sucre",
-            "oeuf",
+            "OEUF",
             "caramel",
             "fleur de sel"
         ],
@@ -80,17 +102,20 @@ export const listeGlaces = [
         enSoldes: true,
         meilleuresVentes: true,
         enStock: true,
-        nouveaute: false
+        nouveaute: false,
+        sansLait: false,
+        sansOeuf: false,
+        sansNoix: true,
     },
     {
         name: "Glace café, copeaux de chocolat noir 70%",
         id: "gcaf",
-        cover: vanilleBourbon,
+        cover: cafe,
         categorie: "glace",
         gamme: "classique",
         ingredients: [
-            "lait",
-            "crème",
+            "LAIT",
+            "CREME",
             "sucre",
             "extrait de café pur Arabica",
             "chocolat noir 70%"
@@ -99,44 +124,50 @@ export const listeGlaces = [
         prix: 6,
         enSoldes: true,
         meilleuresVentes: false,
-        enStock: true,
-        nouveaute: false
+        enStock: false,
+        nouveaute: false,
+        sansLait: false,
+        sansOeuf: true,
+        sansNoix: true,
     },
     {
         name: "Glace nougat de Montélimar, brisures de nougat",
         id: "gngm",
-        cover: vanilleBourbon,
+        cover: nougat,
         categorie: "glace",
         gamme: "classique",
         ingredients: [
-            "lait",
-            "crème",
+            "LAIT",
+            "CREME",
             "sucre",
-            "oeuf",
-            "amande",
+            "OEUF",
+            "AMANDE",
             "miel",
-            "nougat"
+            "nougat (AMANDE)"
         ],
         volume: 750,
         prix: 9,
         enSoldes: false,
         meilleuresVentes: true,
         enStock: false,
-        nouveaute: true
+        nouveaute: true,
+        sansLait: false,
+        sansOeuf: false,
+        sansNoix: false,
     },
     {
         name: "Glace praline, éclats de praline rose",
         id: "gprl",
-        cover: vanilleBourbon,
+        cover: praline,
         categorie: "glace",
         gamme: "saveur locale",
         ingredients: [
-            "lait",
-            "crème",
+            "LAIT",
+            "CREME",
             "sucre",
-            "oeuf",
-            "amande",
-            "praline",
+            "OEUF",
+            "AMANDE",
+            "praline (AMANDE)",
             "sirop de glucose",
             "colorant carmin"
         ],
@@ -145,39 +176,45 @@ export const listeGlaces = [
         enSoldes: false,
         meilleuresVentes: true,
         enStock: true,
-        nouveaute: false
+        nouveaute: false,
+        sansLait: false,
+        sansOeuf: false,
+        sansNoix: false,
     },
     {
         name: "Glace noix de Grenoble, éclats de noix torréfiées",
         id: "gngnb",
-        cover: vanilleBourbon,
+        cover: glaceNoix,
         categorie: "glace",
         gamme: "saveur locale",
         ingredients: [
-            "lait",
-            "crème",
+            "LAIT",
+            "CREME",
             "sucre",
-            "oeuf",
-            "noix de Grenoble"
+            "OEUF",
+            "NOIX de Grenoble"
         ],
         volume: 750,
         prix: 9,
         enSoldes: false,
         meilleuresVentes: false,
         enStock: true,
-        nouveaute: true
+        nouveaute: true,
+        sansLait: false,
+        sansOeuf: false,
+        sansNoix: false,
     },
     {
         name: "Glace menthe et verveine citronnelle",
         id: "gmch",
-        cover: vanilleBourbon,
+        cover: glaceMenthe,
         categorie: "glace",
         gamme: "aromatique",
         ingredients: [
-            "lait",
-            "crème",
+            "LAIT",
+            "CREME",
             "sucre",
-            "oeuf",
+            "OEUF",
             "verveine citronnelle fraîche",
             "menthe fraîche"
         ],
@@ -186,12 +223,15 @@ export const listeGlaces = [
         enSoldes: true,
         meilleuresVentes: false,
         enStock: true,
-        nouveaute: false
+        nouveaute: false,
+        sansLait: false,
+        sansOeuf: false,
+        sansNoix: true,
     },
     {
         name: "Sorbet cassis",
         id: "scss",
-        cover: vanilleBourbon,
+        cover: sorbetCassis,
         categorie: "sorbet",
         gamme: "classique",
         ingredients: [
@@ -204,12 +244,15 @@ export const listeGlaces = [
         enSoldes: false,
         meilleuresVentes: false,
         enStock: true,
-        nouveaute: false
+        nouveaute: false,
+        sansLait: true,
+        sansOeuf: true,
+        sansNoix: true,
     },
     {
-        name: "Sorbet citron vert basilic",
+        name: "Sorbet citron vert romarin",
         id: "sctvb",
-        cover: vanilleBourbon,
+        cover: sorbetCitron,
         categorie: "sorbet",
         gamme: "aromatique",
         ingredients: [
@@ -223,12 +266,15 @@ export const listeGlaces = [
         enSoldes: false,
         meilleuresVentes: false,
         enStock: false,
-        nouveaute: false
+        nouveaute: false,
+        sansLait: true,
+        sansOeuf: true,
+        sansNoix: true,
     },
     {
         name: "Sorbet myrtille",
         id: "smrt",
-        cover: vanilleBourbon,
+        cover: myrtille,
         categorie: "sorbet",
         gamme: "saveur locale",
         ingredients: [
@@ -242,12 +288,18 @@ export const listeGlaces = [
         enSoldes: false,
         meilleuresVentes: false,
         enStock: true,
-        nouveaute: true
+        nouveaute: true,
+        sansLait: true,
+        sansCreme: true,
+        sansOeuf: true,
+        sansAmande: true,
+        sansNoix: true,
+        sansPistache: true
     },
     {
         name: "Sorbet fraise, coulis de fraise",
         id: "sfrs",
-        cover: vanilleBourbon,
+        cover: fraise,
         categorie: "sorbet",
         gamme: "classique",
         ingredients: [
@@ -261,12 +313,15 @@ export const listeGlaces = [
         enSoldes: false,
         meilleuresVentes: false,
         enStock: true,
-        nouveaute: false
+        nouveaute: false,
+        sansLait: true,
+        sansOeuf: true,
+        sansNoix: true,
     },
     {
         name: "Sorbet abricot thym",
         id: "sath",
-        cover: vanilleBourbon,
+        cover: abricot,
         categorie: "sorbet",
         gamme: "aromatique",
         ingredients: [
@@ -280,7 +335,10 @@ export const listeGlaces = [
         enSoldes: true,
         meilleuresVentes: true,
         enStock: false,
-        nouveaute: true
+        nouveaute: true,
+        sansLait: true,
+        sansOeuf: true,
+        sansNoix: true,
     },
 ]
 

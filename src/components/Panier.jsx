@@ -1,25 +1,26 @@
 import { useState, useEffect } from "react"
-import styles from '../styles/Panier.module.css'
+import styles from "../styles/Panier.module.css"
+import { francoPort } from "../datas/constantes"
 
 function Panier({ cart, setCart }) {
-    const [isOpen, setIsOpen] = useState(false)
-    const francoPort = 45
+    const [isOpen, setIsOpen] = useState(false);
     let fraisDePort;
     let total = cart.reduce(
         (acc, glacePanier) => acc + glacePanier.amount * glacePanier.prix,
         0
-    )
-    if (total < francoPort) {
-        fraisDePort = 8
+    );
+    if (total >= francoPort || total === 0) {
+        fraisDePort = 0;
     } else {
-        fraisDePort = 0
+        fraisDePort = 8;
     }
-    total += fraisDePort
+    let resteToFranco = francoPort - total;
+    total += fraisDePort;
 
     useEffect(() => {
-        document.title = `1534m : ${total}€ de douceurs 🍨`
+        document.title = `1534m : ${total}€ de fraicheur ❄️`
     },
-        [total, fraisDePort])
+        [total, fraisDePort]);
 
     return isOpen ? (
         <div className={styles.glPanierOpen}>
@@ -39,6 +40,7 @@ function Panier({ cart, setCart }) {
                         </ul>
                         <p>Frais de port : {fraisDePort}€</p>
                         <h3>Total : {total}€</h3>
+                        {fraisDePort === 0 ? (<p>Livraison gratuite</p>) : (<p>Plus que {resteToFranco}€ pour bénéficier de la livraison gratuite</p>)}
                     </div>
                     <button onClick={() => setCart([])}>Vider le panier</button>
                 </div>

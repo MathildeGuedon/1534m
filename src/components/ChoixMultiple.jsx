@@ -1,27 +1,30 @@
-import { useState } from 'react';
+import styles from "../styles/Categories.module.css";
 
 function ChoixMultiple({ filters, setFilters, legende, filterOptions }) {
-    // Utilise les filtres passés en props ou un objet vide par défaut
-    const [localFilters, setLocalFilters] = useState(filters || {});
-
-    // Met à jour les filtres locaux et parent
     const handleChange = (e) => {
         const { name, checked } = e.target;
-        const newFilters = { ...localFilters, [name]: checked };
-        setLocalFilters(newFilters);
-        setFilters(newFilters); // Transmet les filtres au parent
+        const newFilters = { ...filters, [name]: checked };
+        setFilters(newFilters);
+    };
+
+    const handleReset = () => {
+        const resetFilters = {};
+        filterOptions.forEach(option => {
+            resetFilters[option.name] = false;
+        });
+        setFilters(resetFilters);
     };
 
     return (
-        <div className="lmj-choix-multiple">
+        <div className={styles.glChoixMultipleGlobal}>
             <span>{legende}</span>
-            <div>
+            <div className={styles.glChoixMultipleListe}>
                 {filterOptions.map((option) => (
                     <label key={option.name}>
                         <input
                             type="checkbox"
                             name={option.name}
-                            checked={localFilters[option.name] || false}
+                            checked={filters[option.name] || false}
                             onChange={handleChange}
                         />
                         {option.label}
@@ -29,6 +32,9 @@ function ChoixMultiple({ filters, setFilters, legende, filterOptions }) {
                     </label>
                 ))}
             </div>
+            <button className={styles.glChoixMultipleBtnReset} onClick={handleReset}>
+                Réinitialiser
+            </button>
         </div>
     );
 }

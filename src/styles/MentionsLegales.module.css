@@ -1,0 +1,34 @@
+.glLegalGlobal {
+    position: relative;
+    padding: 0.3em;
+}
+
+.glLegalBtnFermeture {
+    width: fit-content;
+    height: fit-content;
+    padding: 20px;
+    background-color: transparent;
+    color: var(--main-color-dark-turquoise);
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin: 0;
+}
+
+.glLegalBtnFermeture:hover {
+    color: var(--contrast-color-white);
+    background: none;
+}
+
+.glLegalCorps {
+    text-align: justify;
+}
+
+h2 {
+    padding: 1em;
+}
+
+.glLegalGlobal h3 {
+    text-align: center;
+    padding-top: 1em;
+}

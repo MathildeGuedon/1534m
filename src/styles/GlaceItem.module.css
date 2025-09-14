@@ -1,6 +1,5 @@
 .glGlaceItem {
     width: 200px;
-    margin: 10px;
 }
 
 .glGlaceTag {
@@ -11,7 +10,6 @@
 
 .glGlaceItemCover {
     width: 100%;
-    border-radius: 20px;
 }
 
 .glGlaceItemSoldes {
@@ -19,8 +17,9 @@
     padding: 5px 10px;
     left: 0;
     top: 0;
-    background-color: #e57106;
-    border-radius: 20px 0;
+    background-color: var(--intermediate-color-3);
+    color: var(--contrast-color-white);
+    border-radius: 0 0 20px 0;
     font-weight: 600;
 }
 
@@ -29,18 +28,8 @@
     padding: 5px 10px;
     right: 0;
     top: 0;
-    background-color: #045e02;
-    border-radius: 0 20px;
-    font-weight: 600;
-}
-
-.glGlaceItemPrix {
-    position: absolute;
-    padding: 5px 10px;
-    left: 0;
-    bottom: 0;
-    background-color: #045e02;
-    border-radius: 0 20px;
+    background-color: var(--contrast-color-light-grey);
+    border-radius: 0 0 0 20px;
     font-weight: 600;
 }
 
@@ -51,6 +40,25 @@
     right: 0;
     left: 0;
     background-color: rgba(0, 0, 0, 0.6);
+    font-weight: 600;
+    color: var(--contrast-color-light-grey);
+}
+
+.glGlaceInfo {
+    background-color: var(--contrast-color-white);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.glGlaceItemPrix {
+    width: fit-content;
+    padding: 5px 10px;
+    margin: 1em 1em 0 1em;
+    background-color: var(--intermediate-color-3);
+    color: var(--contrast-color-white);
+    border-radius: 20px 0;
     font-weight: 600;
 }
 

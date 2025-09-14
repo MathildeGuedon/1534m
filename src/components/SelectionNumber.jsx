@@ -1,14 +1,14 @@
-import '../styles/Categories.module.css'
-import { useState } from 'react';
+import styles from "../styles/Categories.module.css"
+import { useState } from "react";
 
 function SelectionNumber({ activeSelectNumber, setActiveSelectNumber, maxNumber, minNumber }) {
     const [hoverValue, setHoverValue] = useState("");
     return (
-        < div className='lmj-catNumber' >
+        < div className={styles.SelNumberGlobal} >
             <label for="prix">Prix max</label><br />
             <abbr title={hoverValue}>
                 <span>{minNumber}€</span>
-                <input className='lmj-catNumber-cursor'
+                <input
                     id="prix"
                     name="prix"
                     type="range"
@@ -17,8 +17,8 @@ function SelectionNumber({ activeSelectNumber, setActiveSelectNumber, maxNumber,
                     step="1"
                     value={activeSelectNumber}
                     onChange={(e) => setActiveSelectNumber(e.target.value)}
-                    onMouseOver={(e) => setHoverValue(e.target.value)} // Met à jour hoverValue au survol
-                    onMouseLeave={() => setHoverValue(null)} // Cache la valeur quand la souris quitte le curseur
+                    onMouseOver={(e) => setHoverValue(e.target.value)}
+                    onMouseLeave={() => setHoverValue(null)}
                 >
                 </input>
                 <span>{maxNumber}€</span><br />

@@ -1,19 +1,24 @@
 import GlaceItem from "./GlaceItem"
-import { listeGlaces } from '../datas/listeGlaces'
+import { listeGlaces } from "../datas/listeGlaces"
 import styles from "../styles/BoutiqueProduits.module.css"
 import VoletSelection from "./VoletSelection"
 import { useState } from "react"
 
 function BoutiqueProduits({ cart, setCart }) {
 
-    const [activeClassement, setActiveClassement] = useState('')
-    const [activeGamme, setActiveGamme] = useState("")
-    const [activeSelectNumber, setActiveSelectNumber] = useState("")
+    const [activeClassement, setActiveClassement] = useState("");
+    const [activeGamme, setActiveGamme] = useState("");
+    const [activeSelectNumber, setActiveSelectNumber] = useState("");
     const [filters, setFilters] = useState({
         enSoldes: false,
         meilleuresVentes: false,
         enStock: false,
         nouveaute: false
+    });
+    const [allergenes, setAllergenes] = useState({
+        sansLait: false,
+        sansOeuf: false,
+        sansNoix: false
     });
 
     function trierPar({ activeClassement }) {
@@ -27,36 +32,35 @@ function BoutiqueProduits({ cart, setCart }) {
         } else if (activeClassement === "prix décroissants") {
             return [...listeGlaces].sort((a, b) => b.prix - a.prix);
         }
-    }
+    };
 
 
-    let nouvelleListeGlaces = trierPar({ activeClassement })
+    let nouvelleListeGlaces = trierPar({ activeClassement });
 
-    function addToCart(name, prix) {
-        const currentGlaceSaved = cart.find((glace) => glace.name === name) //Parcourt le tableau cart pour trouver la première plante dont le name correspond au name passé en argument
-        if (currentGlaceSaved) { //si la plante est déjà dans le tableau cart:
-            const cartFilteredCurrentGlace = cart.filter(
-                (glace) => glace.name !== name //création d'un nouveau tableau contenant toutes les plantes sauf celle qu'on veut mettre à jour
-            )
-            setCart([ //met à jour cart 
-                ...cartFilteredCurrentGlace, //étale les plantes filtrées dans un nouveau tableau grâce au spread operator
-                { name, prix, amount: currentGlaceSaved.amount + 1 } //on ajoute au tableau un nouvel objet pour la plante à actualiser avec le même name et price et la quantité incrémentée de 1
+    function addToCart(name, prix, enStock) {
+        if (!enStock) {
+            return
+        }
+        const currentGlaceSaved = cart.find((glace) => glace.name === name);
+        if (currentGlaceSaved) {
+            const cartFilteredCurrentGlace = cart.filter((glace) => glace.name !== name);
+            setCart([
+                ...cartFilteredCurrentGlace,
+                { name, prix, amount: currentGlaceSaved.amount + 1 }
             ])
-        } else { //si la plante n'est pas encore dans le tableau cart: on utilise le spread operator pour créer un nouveau cart identique au précédent et on ajoute un objet pour la nouvelle plante
-            setCart([...cart, { name, prix, amount: 1 }])
+        } else {
+            setCart([...cart, { name, prix, amount: 1 }]);
         }
     }
 
     function minusToCart(name, prix) {
-        const currentGlaceSaved = cart.find((glace) => glace.name === name) //Parcourt le tableau cart pour trouver la première plante dont le name correspond au name passé en argument
-        if (currentGlaceSaved) { //si la plante est déjà dans le tableau cart:
-            const cartFilteredCurrentGlace = cart.filter(
-                (glace) => glace.name !== name //création d'un nouveau tableau contenant toutes les plantes sauf celle qu'on veut mettre à jour
-            )
+        const currentGlaceSaved = cart.find((glace) => glace.name === name);
+        if (currentGlaceSaved) {
+            const cartFilteredCurrentGlace = cart.filter((glace) => glace.name !== name);
             if (currentGlaceSaved.amount === 1) {
-                setCart([...cartFilteredCurrentGlace])
+                setCart([...cartFilteredCurrentGlace]);
             } else {
-                setCart([...cartFilteredCurrentGlace, { name, prix, amount: currentGlaceSaved.amount - 1 }])
+                setCart([...cartFilteredCurrentGlace, { name, prix, amount: currentGlaceSaved.amount - 1 }]);
             }
         }
     }
@@ -72,13 +76,14 @@ function BoutiqueProduits({ cart, setCart }) {
                 setActiveSelectNumber={setActiveSelectNumber}
                 filters={filters}
                 setFilters={setFilters}
+                allergenes={allergenes}
+                setAllergenes={setAllergenes}
             />
             <ul className={styles.glBoutiqueListe}>
                 {nouvelleListeGlaces.filter(glace => {
                     if (!filters.enSoldes && !filters.meilleuresVentes && !filters.enStock && !filters.nouveaute) {
                         return true;
                     }
-                    // Sinon, on vérifie si la plante correspond aux filtres cochés
                     return (
                         (!filters.enSoldes || glace.enSoldes) &&
                         (!filters.meilleuresVentes || glace.meilleuresVentes) &&
@@ -86,13 +91,22 @@ function BoutiqueProduits({ cart, setCart }) {
                         (!filters.nouveaute || glace.nouveaute)
                     );
                 })
+                    .filter(glace => {
+                        if (!allergenes.sansLait && !allergenes.sansOeuf && !allergenes.sansNoix) {
+                            return true;
+                        }
+                        return (
+                            (!allergenes.sansLait || glace.sansLait) &&
+                            (!allergenes.sansOeuf || glace.sansOeuf) &&
+                            (!allergenes.sansNoix || glace.sansNoix)
+                        );
+                    })
                     .map(({ name, id, cover, categorie, gamme, ingredients, volume, prix, enSoldes, meilleuresVentes, enStock, nouveaute }) => (
                         (!activeGamme || activeGamme === gamme) &&
                             (!activeSelectNumber || activeSelectNumber >= prix) ? (
-                            <div key={id}>
+                            <div key={id} className={styles.glBoutiqueItem}>
                                 <GlaceItem
                                     name={name}
-                                    // key={id}
                                     cover={cover}
                                     categorie={categorie}
                                     gamme={gamme}
@@ -104,10 +118,13 @@ function BoutiqueProduits({ cart, setCart }) {
                                     enStock={enStock}
                                     nouveaute={nouveaute}
                                 />
-                                <button onClick={() => addToCart(name, prix)}>+</button>
-                                <button onClick={() => minusToCart(name, prix)}>-</button>
+                                <div className={styles.glBoutiqueBtnCommandePanier}>
+                                    <abbr title="ajouter au panier" className={styles.glBoutiqueBtnPlus}><button onClick={() => addToCart(name, prix, enStock)}>+</button></abbr>
+                                    <abbr title="retirer du panier" className={styles.glBoutiqueBtnMoins}><button onClick={() => minusToCart(name, prix)}>-</button></abbr>
+                                </div>
                             </div>) : null
-                    ))}
+                    ))
+                }
             </ul >
         </div >)
 }

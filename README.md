@@ -64,10 +64,10 @@ Ce projet m’a permis de :
 <img src="captures_ecran/formulaire_controle_inscription_newsletter.jpg" alt="inscription newsletter" title="saisie impossible de certains caractères" max-height="300">
 
 ## Améliorations futures
-- **Carrousel** : Mettre en évidence de quelques produits choisis 
+- **Carrousel** : Mettre en évidence quelques produits choisis 
 - **Compteur d'articles** : Afficher en temps réel la quantité d'articles dans le panier
 - **Validation du panier** : Déclencher une alerte lorsque la commande est validée
-- **Compte à rebours** : Afficher un décompte lors d'actions promotionnelles
+- **Compte à rebours** : Faire défiler un décompte lors d'actions promotionnelles
 - **Base de données** : Remplacer les données statiques par une API
 - **React Router** : Créer des routes vers d'autres pages (mentions légales, à propos par exemple)
 - **Thème sombre** : Ajouter un thème sombre pour améliorer l'accessibilité
